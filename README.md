@@ -1,2 +1,0 @@
-# TextSelector
-Created with CodeSandbox
