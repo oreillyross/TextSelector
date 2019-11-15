@@ -6,8 +6,8 @@ import TextSelector from "./TextSelector";
 import "./styles.css";
 
 const article = {
-  title: "Article Title",
-  source: "News Agency",
+  title: "Google chrome breaks down for business users",
+  source: "Tech News ",
   publishedDateTime: "20191115T15:04",
   text: text
 };
