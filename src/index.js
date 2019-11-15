@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { text } from "./data";
 import TextSelector from "./TextSelector";
+import TextSelectModal from "./TextSelectModal";
 
 import "./styles.css";
 
@@ -13,7 +14,12 @@ const article = {
 };
 
 function App() {
-  return <TextSelector article={article} />;
+  return (
+    <div>
+      <TextSelector article={article} />;
+      <TextSelectModal />
+    </div>
+  );
 }
 
 const rootElement = document.getElementById("root");

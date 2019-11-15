@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, TextArea, Container, Grid } from "semantic-ui-react";
 
 const TextSelector = article => {
+  const [selectedText, setText] = useState("");
+
   return (
     <div>
       <h1>{article.article.title}</h1>
@@ -12,11 +14,15 @@ const TextSelector = article => {
 
       <div style={{ textAlign: "center" }}>
         <TextArea
+          onMouseUp={() => {
+            setText(document.getSelection().toString());
+          }}
           rows={20}
           style={{ width: "90%" }}
           value={article.article.text}
         />
       </div>
+      <div>{selectedText}</div>
     </div>
   );
 };
