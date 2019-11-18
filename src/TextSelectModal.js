@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-const TextSelectModal = () => (
-  <Modal>
+const TextSelectModal = ({ open }) => (
+  <Modal open={open}>
     <Modal.Header>Select a Photo</Modal.Header>
     <Modal.Content image>
       <Image

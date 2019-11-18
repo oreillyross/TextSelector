@@ -1,25 +1,32 @@
 import React, { useState } from "react";
 import { Form, TextArea, Container, Grid } from "semantic-ui-react";
 
-const TextSelector = article => {
+const TextSelector = ({ article, openModal }) => {
   const [selectedText, setText] = useState("");
 
   return (
     <div>
-      <h1>{article.article.title}</h1>
+      <h1>{article.title}</h1>
       <h2>
-        by the {article.article.source}{" "}
-        <span> published on: {article.article.publishedDateTime}</span>{" "}
+        by the {article.source}{" "}
+        <span> published on: {article.publishedDateTime}</span>{" "}
       </h2>
 
       <div style={{ textAlign: "center" }}>
         <TextArea
           onMouseUp={() => {
-            setText(document.getSelection().toString());
+            const text = document.getSelection().toString();
+            if (text.trim() === "") {
+              alert("empty");
+              openModal = false;
+            } else {
+              setText(text);
+              openModal = true;
+            }
           }}
           rows={20}
           style={{ width: "90%" }}
-          value={article.article.text}
+          value={article.text}
         />
       </div>
       <div>{selectedText}</div>
