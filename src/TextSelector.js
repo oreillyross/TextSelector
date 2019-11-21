@@ -2,12 +2,24 @@ import React, { useState } from "react";
 import { Form, TextArea, Container, Grid } from "semantic-ui-react";
 
 const TextSelector = ({ article, selectText }) => {
+  
+  const {
+    title,
+    source,
+    publishedDateTime,
+    url,
+    text
+   } = article;
+
   return (
     <div>
-      <h1>{article.title}</h1>
+      <a href={url} rel="noreferrer noopener" target="_blank">
+      <h1>{title}</h1>
+            </a>
+      
       <h2>
-        by the {article.source}{" "}
-        <span> published on: {article.publishedDateTime}</span>{" "}
+        by the {source}{" "}
+        <span> published on: {publishedDateTime}</span>{" "}
       </h2>
 
       <div style={{ textAlign: "center" }}>
@@ -15,7 +27,7 @@ const TextSelector = ({ article, selectText }) => {
           onMouseUp={() => selectText(window.getSelection().toString())}
           rows={20}
           style={{ width: "90%" }}
-          value={article.text}
+          value={text}
         />
       </div>
     </div>
