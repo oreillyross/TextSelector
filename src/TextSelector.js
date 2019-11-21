@@ -12,7 +12,7 @@ const TextSelector = ({ article, selectText }) => {
 
       <div style={{ textAlign: "center" }}>
         <TextArea
-          onMouseUp={text => selectText(document.getSelection().text())}
+          onMouseUp={() => selectText(window.getSelection().toString())}
           rows={20}
           style={{ width: "90%" }}
           value={article.text}
