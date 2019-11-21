@@ -10,7 +10,8 @@ const article = {
   title: "Google chrome breaks down for business users",
   source: "Tech News ",
   publishedDateTime: "20191115T15:04",
-  text: text
+  text: text,
+  url: "https://www.bbc.com/news/science-environment-50500980"
 };
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       <TextSelector selectText={selectText} article={article} />
       {selectedText !== "" && (
         <TextSelectModal
-          selectedText={selectedText}
+          articleSelectedText={{ ...article, selectedText }}
           open={modalOpen}
           cancelSelection={cancelSelection}
         />
