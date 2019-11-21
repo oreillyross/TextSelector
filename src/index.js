@@ -14,8 +14,10 @@ const article = {
 };
 
 function App() {
+  const [selectedText, setSelectedText] = React.useState("");
+
   const selectText = selectedText => {
-    console.log(selectedText);
+    setSelectedText(selectedText);
   };
   return (
     <div>
