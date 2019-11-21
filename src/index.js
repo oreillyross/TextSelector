@@ -21,8 +21,8 @@ function App() {
   };
   return (
     <div>
-      <TextSelector selectText={selectText} article={article} />;
-      <TextSelectModal />
+      <TextSelector selectText={selectText} article={article} />
+      {selectedText !== "" && <TextSelectModal open />}
     </div>
   );
 }
