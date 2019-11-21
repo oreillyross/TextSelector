@@ -15,14 +15,26 @@ const article = {
 
 function App() {
   const [selectedText, setSelectedText] = React.useState("");
-
+  const [modalOpen, setModalOpen] = React.useState(false);
   const selectText = selectedText => {
     setSelectedText(selectedText);
+    if (selectedText !== "") setModalOpen(true);
+  };
+
+  const cancelSelection = () => {
+    console.log("called");
+    setModalOpen(false);
   };
   return (
     <div>
       <TextSelector selectText={selectText} article={article} />
-      {selectedText !== "" && <TextSelectModal open />}
+      {selectedText !== "" && (
+        <TextSelectModal
+          selectedText={selectedText}
+          open={modalOpen}
+          cancelSelection={cancelSelection}
+        />
+      )}
     </div>
   );
 }
