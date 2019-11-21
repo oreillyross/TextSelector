@@ -14,9 +14,12 @@ const article = {
 };
 
 function App() {
+  const selectText = selectedText => {
+    console.log(selectedText);
+  };
   return (
     <div>
-      <TextSelector article={article} />;
+      <TextSelector selectText={selectText} article={article} />;
       <TextSelectModal />
     </div>
   );
