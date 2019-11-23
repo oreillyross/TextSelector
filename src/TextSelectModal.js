@@ -1,7 +1,12 @@
 import React from "react";
-import { Button, Header, Modal } from "semantic-ui-react";
+import { Button, Header, Modal, Input } from "semantic-ui-react";
 
-const TextSelectModal = ({ open, articleSelectedText, cancelSelection }) => {
+const TextSelectModal = ({
+  open,
+  articleSelectedText,
+  cancelSelection,
+  saveSnippet
+}) => {
   const {
     title,
     source,
@@ -34,9 +39,10 @@ const TextSelectModal = ({ open, articleSelectedText, cancelSelection }) => {
         <div style={{ padding: "1.2rem" }}>{selectedText}</div>
       </Modal.Content>
       <Modal.Actions>
+        <Input />
         <Button
           onClick={() => {
-            console.log("saved");
+            saveSnippet();
           }}
         >
           Save

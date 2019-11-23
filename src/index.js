@@ -26,6 +26,11 @@ function App() {
     console.log("called");
     setModalOpen(false);
   };
+
+  const saveSnippet = () => {
+    const { title, source, publishedDateTime, url } = article;
+    console.table({ title, source, publishedDateTime, url, selectedText });
+  };
   return (
     <div>
       <TextSelector selectText={selectText} article={article} />
@@ -34,6 +39,7 @@ function App() {
           articleSelectedText={{ ...article, selectedText }}
           open={modalOpen}
           cancelSelection={cancelSelection}
+          saveSnippet={saveSnippet}
         />
       )}
     </div>
