@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Header, Modal, Input } from "semantic-ui-react";
+import TagSelect from './TagSelect'
 
 const TextSelectModal = ({
   open,
@@ -39,7 +40,7 @@ const TextSelectModal = ({
         <div style={{ padding: "1.2rem" }}>{selectedText}</div>
       </Modal.Content>
       <Modal.Actions>
-        <Input />
+        <TagSelect />
         <Button
           onClick={() => {
             saveSnippet();
