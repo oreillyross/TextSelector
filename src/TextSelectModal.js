@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { Button, Header, Modal } from "semantic-ui-react";
 
 const TextSelectModal = ({ open, articleSelectedText, cancelSelection }) => {
   const {
@@ -11,7 +11,13 @@ const TextSelectModal = ({ open, articleSelectedText, cancelSelection }) => {
   } = articleSelectedText;
 
   return (
-    <Modal open={open}>
+    <Modal
+      closeIcon
+      open={open}
+      onClose={() => {
+        cancelSelection();
+      }}
+    >
       <Modal.Header>Selected information / event</Modal.Header>
       <Modal.Content image>
         <Modal.Description>
@@ -23,16 +29,19 @@ const TextSelectModal = ({ open, articleSelectedText, cancelSelection }) => {
           <p>
             by {source} <span>published on {publishedDateTime}</span>
           </p>
-          <p>{selectedText}</p>
+          <div>
+            <div>{selectedText}</div>
+          </div>
         </Modal.Description>
-        <Button
-          onClick={() => {
-            console.log("saved");
-          }}
-        >
-          Save
-        </Button>
-        <Button onClick={() => cancelSelection()}>Cancel</Button>
+        <Modal.Actions>
+          <Button
+            onClick={() => {
+              console.log("saved");
+            }}
+          >
+            Save
+          </Button>
+        </Modal.Actions>
       </Modal.Content>
     </Modal>
   );

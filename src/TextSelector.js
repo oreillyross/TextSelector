@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Form, TextArea, Container, Grid } from "semantic-ui-react";
+import React  from "react";
+import { TextArea } from "semantic-ui-react";
 
 const TextSelector = ({ article, selectText }) => {
   
@@ -12,7 +12,7 @@ const TextSelector = ({ article, selectText }) => {
    } = article;
 
   return (
-    <div>
+    <div style={{padding: '1.2rem'}}>
       <a href={url} rel="noreferrer noopener" target="_blank">
       <h1>{title}</h1>
             </a>
@@ -26,7 +26,7 @@ const TextSelector = ({ article, selectText }) => {
         <TextArea
           onMouseUp={() => selectText(window.getSelection().toString())}
           rows={20}
-          style={{ width: "90%" }}
+          style={{ width: "90%", padding: '1.2rem' }}
           value={text}
         />
       </div>
