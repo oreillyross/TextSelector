@@ -4,7 +4,7 @@ import { text } from "./data";
 import TextSelector from "./TextSelector";
 import TextSelectModal from "./TextSelectModal";
 
-//import "./styles.css";
+import "./styles.css";
 
 const article = {
   title: "Google chrome breaks down for business users",

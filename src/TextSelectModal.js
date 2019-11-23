@@ -19,30 +19,29 @@ const TextSelectModal = ({ open, articleSelectedText, cancelSelection }) => {
       }}
     >
       <Modal.Header>Selected information / event</Modal.Header>
-      <Modal.Content image>
-        <Modal.Description>
-          <Header>
-            <a href={url} rel="noreferrer noopener" target="_blank">
-              {title}
-            </a>
-          </Header>
-          <p>
-            by {source} <span>published on {publishedDateTime}</span>
-          </p>
-          <div>
-            <div>{selectedText}</div>
-          </div>
-        </Modal.Description>
-        <Modal.Actions>
-          <Button
-            onClick={() => {
-              console.log("saved");
-            }}
-          >
-            Save
-          </Button>
-        </Modal.Actions>
+
+      <Modal.Description>
+        <Header style={{ padding: "1.2rem" }}>
+          <a href={url} rel="noreferrer noopener" target="_blank">
+            {title}
+          </a>
+        </Header>
+        <p style={{ padding: "1.2rem" }}>
+          by {source} <span>published on {publishedDateTime}</span>
+        </p>
+      </Modal.Description>
+      <Modal.Content>
+        <div style={{ padding: "1.2rem" }}>{selectedText}</div>
       </Modal.Content>
+      <Modal.Actions>
+        <Button
+          onClick={() => {
+            console.log("saved");
+          }}
+        >
+          Save
+        </Button>
+      </Modal.Actions>
     </Modal>
   );
 };
