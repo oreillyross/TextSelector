@@ -27,9 +27,37 @@ const renderSuggestion = suggestion => (
 )
 
 export default function TagSelect() {
-  return (
-    <Autosuggest>/
+  
+  const onSuggestionsFetchRequested = ({value}) => {
+    setSuggestions(getSuggestions(value))
+  }
 
+  const onSuggestionsClearRequested = () => {
+    setSuggestions([])
+  }
+
+  const onChange = (event, {newValue}) => {
+    setValue(newValue)
+  } 
+
+  const [suggestions, setSuggestions] = React.useState([])
+  const [value, setValue] = React.useState('')
+  
+
+  const inputProps = {
+    placeholder: 'type a tag',
+    value,
+    onChange: onChange
+  }
+  return (
+    <Autosuggest
+      suggestions={suggestions}
+      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+      onSuggestionsClearRequested={onSuggestionsClearRequested}
+      getSuggestionValue={getSuggestionValue}
+      renderSuggestion={renderSuggestion}
+      inputProps={inputProps}
+     >
       this is auto suggest
     </Autosuggest>
 
