@@ -8,6 +8,23 @@ import TextSelectModal from "./TextSelectModal";
 import TagSelect from './TagSelect'
 import TagSuggest from './TagSuggest'
 import Tag from './Tag'
+
+const tags = [
+  'Chrome',
+  'Google',
+  'IOS',
+  'dfgdfg',
+  'Chrome',
+  'Google',
+  'IOS',
+  'dfgdfg','Chrome',
+  'Google',
+  'IOS',
+  'dfgdfg','Chrome',
+  'Google',
+  'IOS',
+  'dfgdfg',
+]
 //
 
 import "./styles.css";
@@ -53,4 +70,4 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<TagSelect />, rootElement);
+ReactDOM.render(<TagSelect tags={tags} />, rootElement);
