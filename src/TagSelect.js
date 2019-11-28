@@ -1,65 +1,53 @@
 import React from 'react'
-import Autosuggest from 'react-autosuggest'
+import TagSuggest from './TagSuggest'
 
-const tags = [
+import styled from 'styled-components'
 
-{name: 'Google'},
-{name: 'Chrome'},
-{name: 'Browser'},
-]
 
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase()
-  const inputLength = inputValue.length
 
-  return inputLength === 0 ? [] : 
-  
-  tags.filter(tag => tag.name.toLowerCase().slice(0, inputLength) === inputValue
-   ) 
-}
+const StyledParent = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
 
-const getSuggestionValue = suggestion => suggestion.name
+`
 
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-)
+const StyledHeader = styled.div`
+   grid-area: 1 / 1 / 2 / 2;
+   font-weight: bold;
+   text-align: left;
+   padding: 1.2rem;
+   justify-self: stretch;
+`
+
+const StyledTagInput = styled.div`
+   grid-area: 2 / 1 / 3 / 2;
+   text-align: left;
+   padding: 1.2rem;
+   justify-self: stretch;
+`
+
+const StyledTags = styled.div`
+   grid-area: 2 / 1 / 2 / 2;
+   display: grid;
+   grid-gap: 10px 10px
+`
+
+const StyledTag = styled.button`
+  padding: 1.2rem;
+`
+
+
 
 export default function TagSelect() {
   
-  const onSuggestionsFetchRequested = ({value}) => {
-    setSuggestions(getSuggestions(value))
-  }
-
-  const onSuggestionsClearRequested = () => {
-    setSuggestions([])
-  }
-
-  const onChange = (event, {newValue}) => {
-    setValue(newValue)
-  } 
-
-  const [suggestions, setSuggestions] = React.useState([])
-  const [value, setValue] = React.useState('')
+ 
   
-
-  const inputProps = {
-    placeholder: 'type a tag',
-    value,
-    onChange: onChange
-  }
   return (
-    <Autosuggest
-      suggestions={suggestions}
-      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-      onSuggestionsClearRequested={onSuggestionsClearRequested}
-      getSuggestionValue={getSuggestionValue}
-      renderSuggestion={renderSuggestion}
-      inputProps={inputProps}
-     >
-      this is auto suggest
-    </Autosuggest>
+    <div style={{padding: '1.2rem'}}>
+    <TagSuggest></TagSuggest>
+    
+    </div>
 
   )
 }

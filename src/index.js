@@ -4,6 +4,10 @@ import { text } from "./data";
 import TextSelector from "./TextSelector";
 import TextSelectModal from "./TextSelectModal";
 
+//TESTING REMOVE
+import TagSelect from './TagSelect'
+//
+
 import "./styles.css";
 
 const article = {
@@ -47,4 +51,4 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<TagSelect />, rootElement);
