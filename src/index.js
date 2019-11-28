@@ -6,6 +6,8 @@ import TextSelectModal from "./TextSelectModal";
 
 //TESTING REMOVE
 import TagSelect from './TagSelect'
+import TagSuggest from './TagSuggest'
+import Tag from './Tag'
 //
 
 import "./styles.css";
@@ -51,4 +53,4 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<TagSelect />, rootElement);
+ReactDOM.render(<Tag name='Chrome' />, rootElement);

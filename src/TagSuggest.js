@@ -51,7 +51,7 @@ export default function TagSuggest() {
 
 
   return (
-    <div>
+    <div style={{padding: '1.2rem'}}>
        <Autosuggest
       suggestions={suggestions}
       onSuggestionsFetchRequested={onSuggestionsFetchRequested}
