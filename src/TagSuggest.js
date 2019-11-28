@@ -1,5 +1,7 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest'
+import TagSuggestTheme from './TagSuggestTheme.css'
+import {Input} from 'semantic-ui-react'
 
 const tags = [
 
@@ -44,14 +46,24 @@ export default function TagSuggest() {
   const [value, setValue] = React.useState('')
   
   const inputProps = {
-    placeholder: 'type a tag',
+    placeholder: 'add a new tag',
     value,
     onChange: onChange
   }
 
-
+  const renderInputComponent = inputProps => (
+    <div>
+       <Input
+        {...inputProps}
+    label={{ tag: true, content: 'Add Tag' }}
+    labelPosition='right'
+    
+  />
+      
+    </div>
+  );
   return (
-    <div style={{padding: '1.2rem'}}>
+    <span style={{margin: '.5rem', borderRadius: '15px 15px 15px 15px', padding: '.2rem'}}>
        <Autosuggest
       suggestions={suggestions}
       onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -59,9 +71,11 @@ export default function TagSuggest() {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       inputProps={inputProps}
+      theme={TagSuggestTheme}
+      renderInputComponent={renderInputComponent}
      >
      </Autosuggest>
-    </div>
+    </span>
   )
 
 }

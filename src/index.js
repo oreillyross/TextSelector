@@ -53,4 +53,4 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Tag name='Chrome' />, rootElement);
+ReactDOM.render(<TagSelect />, rootElement);
