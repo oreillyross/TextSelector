@@ -10,17 +10,12 @@ const StyledParent = styled.div`
   grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
 `
 
-export default function TagSelect({tags}) {
+export default function TagSelect({tags, onDelete}) {
   
- 
+  
   
   return (
-    <StyledParent>
-    {tags.map(tag => (
-      <Tag key={tag} name={tag}/>
-    ))}
-    <TagSuggest/>
-    </StyledParent>
+    <Tags></Tags>
 
   )
 }

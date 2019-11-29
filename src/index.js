@@ -8,24 +8,15 @@ import TextSelectModal from "./TextSelectModal";
 import TagSelect from './TagSelect'
 import TagSuggest from './TagSuggest'
 import Tag from './Tag'
+import Tags from './Tags'
 
 const tags = [
   'Chrome',
   'Google',
   'IOS',
-  'dfgdfg',
-  'Chrome',
-  'Google',
-  'IOS',
-  'dfgdfg','Chrome',
-  'Google',
-  'IOS',
-  'dfgdfg','Chrome',
-  'Google',
-  'IOS',
-  'dfgdfg',
+ 
 ]
-//
+
 
 import "./styles.css";
 
@@ -36,6 +27,8 @@ const article = {
   text: text,
   url: "https://www.bbc.com/news/science-environment-50500980"
 };
+
+
 
 function App() {
   const [selectedText, setSelectedText] = React.useState("");
@@ -54,6 +47,7 @@ function App() {
     const { title, source, publishedDateTime, url } = article;
     console.table({ title, source, publishedDateTime, url, selectedText });
   };
+
   return (
     <div>
       <TextSelector selectText={selectText} article={article} />
@@ -70,4 +64,4 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<TagSelect tags={tags} />, rootElement);
+ReactDOM.render(<Tags initialTags={tags}/>, rootElement);
