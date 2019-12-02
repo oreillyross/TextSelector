@@ -2,53 +2,8 @@ import React from 'react';
 import Autosuggest from 'react-autosuggest'
 import { Input } from 'semantic-ui-react'
 import styled from 'styled-components'
+import { theme } from './theme'
 
-const theme = {
-  container: {
-    position: 'relative'
-  },
-  input: {
-    
-    padding: '10px 20px',
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
-    borderBottomLeftRadius: 4,
-    borderBottomRightRadius: 4,
-  },
-  inputFocused: {
-    outline: 'none'
-  },
-  inputOpen: {
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0
-  },
-  suggestionsContainer: {
-    display: 'none'
-  },
-  suggestionsContainerOpen: {
-    display: 'block',
-    position: 'absolute',
-    top: 51,
-    width: 280,
-    border: '1px solid #aaa',
-    backgroundColor: '#fff',
-    borderBottomLeftRadius: 4,
-    borderBottomRightRadius: 4,
-    zIndex: 2
-  },
-  suggestionsList: {
-    margin: 0,
-    padding: 0,
-    listStyleType: 'none',
-  },
-  suggestion: {
-    cursor: 'pointer',
-    padding: '10px 20px'
-  },
-  suggestionHighlighted: {
-    backgroundColor: '#ddd'
-  }
-};
 
 const tags = [
 
@@ -60,12 +15,6 @@ const tags = [
   ]
 
 
-const StyledSuggestions = styled.div`
-  background-color: #E4EEE1;
-  list-style: none;
-
-`
-  
 const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase()
   const inputLength = inputValue.length
@@ -79,9 +28,9 @@ const getSuggestions = value => {
 const getSuggestionValue = suggestion => suggestion.name
 
 const renderSuggestion = suggestion => (
-  <StyledSuggestions>
+  <div>
     {suggestion.name}
-  </StyledSuggestions>
+    </div>
 )
 
 export default function TagSuggest({addTag}) {
