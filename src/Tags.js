@@ -19,12 +19,16 @@ export default function Tags({initialTags}) {
     setTags(newTags)
   }
 
+  const addTag = (e, value) => {
+    console.log(value)
+  }
+
   return (
     <StyledParent>
     {tags.map(tag => (
       <Tag key={tag} name={tag} onDelete={onDelete}/>
     ))}
-    <TagSuggest/>
+    <TagSuggest addTag={addTag}/>
     </StyledParent>
   )
 }
