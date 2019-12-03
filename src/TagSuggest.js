@@ -33,7 +33,7 @@ const renderSuggestion = suggestion => (
     </div>
 )
 
-export default function TagSuggest({addTag}) {
+export default function TagSuggest({addTag, value, onChange}) {
   
   const onSuggestionsFetchRequested = ({value}) => {
     setSuggestions(getSuggestions(value))
@@ -43,24 +43,22 @@ export default function TagSuggest({addTag}) {
     setSuggestions([])
   }
 
-  const onChange = (event, {newValue}) => {
-    setValue(newValue)
-    
-  } 
+
 
   const [suggestions, setSuggestions] = React.useState([])
-  const [value, setValue] = React.useState('')
+
   
   const inputProps = {
     placeholder: 'add a new tag',
     value,
-    onChange
-    
+    onChange,
   }
+
+ 
 
     const renderInputComponent = inputProps => (
     <Input 
-   
+     onKeyPress={addTag}
     {...inputProps}/>
   );
   

@@ -12,23 +12,32 @@ const StyledParent = styled.div`
 
 export default function Tags({initialTags}) {
   
-  const [tags, setTags] = React.useState(initialTags)
+  const [tags, setTags] = React.useState(new Set(initialTags))
+  const [value, setValue] = React.useState('')
   
   const onDelete = (name) => {
-    const newTags = tags.filter(tag => tag !== name)
-    setTags(newTags)
-  }
+    const newTags = Array.from(tags).filter(tag => tag !== name)
+setTags(new Set(newTags))
 
-  const addTag = (e, value) => {
-    console.log(value)
+}
+
+
+  const onChange = (event, {newValue}) => {
+    setValue(newValue)
+  } 
+  const addTag = (e) => {
+    if (e.key === 'Enter' && value) {
+      setTags(tags.add(value))
+      setValue('')
+    }
   }
 
   return (
     <StyledParent>
-    {tags.map(tag => (
+    {Array.from(tags).map(tag => (
       <Tag key={tag} name={tag} onDelete={onDelete}/>
     ))}
-    <TagSuggest addTag={addTag}/>
+    <TagSuggest addTag={addTag} onChange={onChange} value={value}/>
     </StyledParent>
   )
 }
