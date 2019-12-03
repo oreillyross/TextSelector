@@ -10,34 +10,15 @@ const StyledParent = styled.div`
   grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
 `
 
-export default function Tags({initialTags}) {
+export default function Tags({initialTags, onDelete}) {
   
-  const [tags, setTags] = React.useState(new Set(initialTags))
-  const [value, setValue] = React.useState('')
-  
-  const onDelete = (name) => {
-    const newTags = Array.from(tags).filter(tag => tag !== name)
-setTags(new Set(newTags))
-
-}
-
-
-  const onChange = (event, {newValue}) => {
-    setValue(newValue)
-  } 
-  const addTag = (e) => {
-    if (e.key === 'Enter' && value) {
-      setTags(tags.add(value))
-      setValue('')
-    }
-  }
-
+console.log(initialTags)
   return (
     <StyledParent>
-    {Array.from(tags).map(tag => (
-      <Tag key={tag} name={tag} onDelete={onDelete}/>
+    {initialTags.map(tag => (
+       <Tag key={tag} name={tag} onDelete={onDelete}/>
     ))}
-    <TagSuggest addTag={addTag} onChange={onChange} value={value}/>
+    
     </StyledParent>
   )
 }

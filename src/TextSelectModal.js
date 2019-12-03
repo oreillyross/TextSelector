@@ -1,20 +1,30 @@
 import React from "react";
 import { Button, Header, Modal, Input } from "semantic-ui-react";
-import TagSelect from './TagSelect'
+import Tags from "./Tags";
+
 
 const TextSelectModal = ({
   open,
   articleSelectedText,
-  cancelSelection,
-  saveSnippet
+   cancelSelection,
+   saveSnippet,
+   onTagDelete
 }) => {
+  
+  
   const {
     title,
     source,
     publishedDateTime,
     url,
-    selectedText
+    selectedText,
+tags
   } = articleSelectedText;
+
+  
+
+  console.log(tags)
+  
 
   return (
     <Modal
@@ -40,7 +50,10 @@ const TextSelectModal = ({
         <div style={{ padding: "1.2rem" }}>{selectedText}</div>
       </Modal.Content>
       <Modal.Actions>
-        <TagSelect />
+        <Tags
+          initialTags={tags}
+          onDelete={onTagDelete}
+        />
         <Button
           onClick={() => {
             saveSnippet();

@@ -3,22 +3,7 @@ import ReactDOM from "react-dom";
 import { text } from "./data";
 import TextSelector from "./TextSelector";
 import TextSelectModal from "./TextSelectModal";
-//import "./styles.css";
-
-//TESTING REMOVE
-import TagSelect from './TagSelect'
-import TagSuggest from './TagSuggest'
-import Tag from './Tag'
-import Tags from './Tags'
-
-const tags = [
-  'Chrome',
-  'Google',
-  'IOS',
-]
-
-
-
+import "./styles.css";
 
 const article = {
   title: "Google chrome breaks down for business users",
@@ -28,18 +13,21 @@ const article = {
   url: "https://www.bbc.com/news/science-environment-50500980"
 };
 
+const initialTags = ["Chrome", "Google"];
 
-
-function App() {
+function TextSelect({ article }) {
+  
   const [selectedText, setSelectedText] = React.useState("");
   const [modalOpen, setModalOpen] = React.useState(false);
+  
+  const [tags, setTags] = React.useState(initialTags);
+
   const selectText = selectedText => {
     setSelectedText(selectedText);
     if (selectedText !== "") setModalOpen(true);
   };
 
   const cancelSelection = () => {
-    console.log("called");
     setModalOpen(false);
   };
 
@@ -48,15 +36,21 @@ function App() {
     console.table({ title, source, publishedDateTime, url, selectedText });
   };
 
+  const onTagDelete = (name) => {
+    const newTags = tags.filter(tag => tag !== name)
+    setTags(newTags)
+  }
+
   return (
     <div>
       <TextSelector selectText={selectText} article={article} />
       {selectedText !== "" && (
         <TextSelectModal
-          articleSelectedText={{ ...article, selectedText }}
+          articleSelectedText={{ ...article, selectedText, tags }}
           open={modalOpen}
           cancelSelection={cancelSelection}
           saveSnippet={saveSnippet}
+          onTagDelete={onTagDelete}
         />
       )}
     </div>
@@ -64,4 +58,4 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Tags initialTags={tags}/>, rootElement);
+ReactDOM.render(<TextSelect article={article} />, rootElement);
