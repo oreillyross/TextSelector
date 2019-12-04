@@ -27,19 +27,27 @@ function TextSelect({ article }) {
     if (selectedText !== "") setModalOpen(true);
   };
 
+  
   const cancelSelection = () => {
     setModalOpen(false);
   };
 
   const saveSnippet = () => {
     const { title, source, publishedDateTime, url } = article;
-    console.table({ title, source, publishedDateTime, url, selectedText });
+    console.table({ title, source, publishedDateTime, url, selectedText, tags });
   };
 
   const onTagDelete = (name) => {
     const newTags = tags.filter(tag => tag !== name)
     setTags(newTags)
   }
+
+const addTag = (value) => {
+  if (!tags.includes(value)) {
+    setTags([...tags, value])
+  }
+  
+}
 
   return (
     <div>
@@ -51,6 +59,7 @@ function TextSelect({ article }) {
           cancelSelection={cancelSelection}
           saveSnippet={saveSnippet}
           onTagDelete={onTagDelete}
+          addTag={addTag}
         />
       )}
     </div>

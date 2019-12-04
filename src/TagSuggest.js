@@ -1,7 +1,6 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest'
 import { Input } from 'semantic-ui-react'
-import styled from 'styled-components'
 import { theme } from './theme'
 
 
@@ -33,7 +32,7 @@ const renderSuggestion = suggestion => (
     </div>
 )
 
-export default function TagSuggest({addTag, value, onChange}) {
+export default function TagSuggest({addTag}) {
   
   const onSuggestionsFetchRequested = ({value}) => {
     setSuggestions(getSuggestions(value))
@@ -46,8 +45,23 @@ export default function TagSuggest({addTag, value, onChange}) {
 
 
   const [suggestions, setSuggestions] = React.useState([])
-
+  const [value, setValue] = React.useState('')
   
+
+  const tagSelected = (e) => {
+    if (e.keyCode === 13) {
+      addTag(value)
+      setValue('')
+    }
+    
+  }
+
+  const onChange = (event, {newValue}) => {
+    setValue(newValue)
+  }
+
+
+
   const inputProps = {
     placeholder: 'add a new tag',
     value,
@@ -58,7 +72,7 @@ export default function TagSuggest({addTag, value, onChange}) {
 
     const renderInputComponent = inputProps => (
     <Input 
-     onKeyPress={addTag}
+     onKeyUp={tagSelected}
     {...inputProps}/>
   );
   

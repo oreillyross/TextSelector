@@ -8,7 +8,8 @@ const TextSelectModal = ({
   articleSelectedText,
    cancelSelection,
    saveSnippet,
-   onTagDelete
+   onTagDelete,
+   addTag
 }) => {
   
   
@@ -53,6 +54,8 @@ tags
         <Tags
           initialTags={tags}
           onDelete={onTagDelete}
+          addTag={addTag}
+          
         />
         <Button
           onClick={() => {
