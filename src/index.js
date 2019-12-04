@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { text } from "./data";
 import TextSelector from "./TextSelector";
 import TextSelectModal from "./TextSelectModal";
-import "./styles.css";
+//import "./styles.css";
 
 const article = {
   title: "Google chrome breaks down for business users",
@@ -35,6 +35,7 @@ function TextSelect({ article }) {
   const saveSnippet = () => {
     const { title, source, publishedDateTime, url } = article;
     console.table({ title, source, publishedDateTime, url, selectedText, tags });
+    setModalOpen(false);
   };
 
   const onTagDelete = (name) => {
