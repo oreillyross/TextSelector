@@ -5,13 +5,6 @@ import TextSelector from "./TextSelector";
 import TextSelectModal from "./TextSelectModal";
 //import "./styles.css";
 
-const article = {
-  title: "Google chrome breaks down for business users",
-  source: "Tech News ",
-  publishedDateTime: "20191115T15:04",
-  text: text,
-  url: "https://www.bbc.com/news/science-environment-50500980"
-};
 
 const initialTags = ["Chrome", "Google"];
 
