@@ -67,5 +67,4 @@ const addTag = (value) => {
   );
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<TextSelect article={article} />, rootElement);
+export default TextSelect
