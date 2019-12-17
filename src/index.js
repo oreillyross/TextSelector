@@ -1,26 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { text } from "./data";
 import TextSelector from "./TextSelector";
 import TextSelectModal from "./TextSelectModal";
-//import "./styles.css";
-
-
-const initialTags = ["Chrome", "Google"];
+import "./styles.css";
 
 function TextSelect({ article }) {
   
   const [selectedText, setSelectedText] = React.useState("");
+
   const [modalOpen, setModalOpen] = React.useState(false);
-  
-  const [tags, setTags] = React.useState(initialTags);
+
+  const [tags, setTags] = React.useState(article.initialTags);
 
   const selectText = selectedText => {
     setSelectedText(selectedText);
     if (selectedText !== "") setModalOpen(true);
   };
 
-  
   const cancelSelection = () => {
     setModalOpen(false);
   };
@@ -43,7 +38,7 @@ const addTag = (value) => {
   
 }
 
-  return (
+return (
     <div>
       <TextSelector selectText={selectText} article={article} />
       {selectedText !== "" && (
