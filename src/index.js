@@ -3,11 +3,15 @@ import TextSelector from "./TextSelector";
 import TextSelectModal from "./TextSelectModal";
 import "./styles.css";
 
+
 function TextSelect({ article }) {
+
   
   const [selectedText, setSelectedText] = React.useState("");
 
   const [modalOpen, setModalOpen] = React.useState(false);
+
+  
 
   const [tags, setTags] = React.useState(article.initialTags);
 

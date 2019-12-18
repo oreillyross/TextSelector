@@ -11,6 +11,7 @@ const TextSelector = ({ article, selectText }) => {
     text
    } = article;
 
+
   return (
     <div style={{padding: '1.2rem'}}>
       <a href={url} rel="noreferrer noopener" target="_blank">
