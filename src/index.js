@@ -4,15 +4,13 @@ import TextSelectModal from "./TextSelectModal";
 import "./styles.css";
 
 
-function TextSelect({ article } ) {
+function TextSelect({ article = {} } ) {
   
   const [selectedText, setSelectedText] = React.useState("");
 
   const [modalOpen, setModalOpen] = React.useState(false);
-
   
-
-  const [tags, setTags] = React.useState(article.initialTags);
+  const [tags, setTags] = React.useState(article.initialTags || []);
 
   const selectText = selectedText => {
     setSelectedText(selectedText);
@@ -41,6 +39,9 @@ const addTag = (value) => {
   
 }
 
+if (Object.entries(article).length === 0 && article.constructor === Object) {
+  return <div>Oops, looks like you need to pass an article</div>
+}
 return (
     <div>
       <TextSelector selectText={selectText} article={article} />
