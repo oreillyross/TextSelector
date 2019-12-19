@@ -27,3 +27,8 @@ test("TextSelect renders an article without initial tags", () => {
     "no tags associated with this article"
   );
 });
+
+test("that user cannot add a blank tag", () => {
+  const { debug } = render(<TextSelect article={article} />);
+  debug();
+});
