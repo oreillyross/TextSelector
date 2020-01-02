@@ -10,7 +10,7 @@ function TextSelect({ article }) {
   const [selectedText, setSelectedText] = React.useState("");
 
   const [modalOpen, setModalOpen] = React.useState(false);
-
+  
   const [tags, setTags] = React.useState(article.initialTags || []);
 
   const selectText = selectedText => {

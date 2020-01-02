@@ -11,6 +11,7 @@ function getSelectedText() {
 
 const TextSelector = ({ article, selectText }) => {
   const { title, source, publishedDateTime, url, text, initialTags } = article;
+   console.log(initialTags)
   return (
     <div style={{ padding: "1.2rem" }}>
       <a href={url} rel="noreferrer noopener" target="_blank">
